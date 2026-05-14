@@ -1,0 +1,233 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import siteData from '../data/site.json';
+import homepageProducts from '../data/homepage-products.json';
+const silos = siteData.silos;
+const brand = siteData.brand;
+const QUICK_NAV_ICONS = ['⚡', '▣', '☆', '⏰', '✨', '⚖', '⚒', '☰'];
+const homeTitle = siteData.name.replace(/\b\w/g, (c) => c.toUpperCase());
+const topPicks = homepageProducts.topPicks;
+const bestsellers = homepageProducts.bestsellers.length > 0 ? homepageProducts.bestsellers : topPicks;
+const aboveFold = topPicks.slice(0, 3);
+---
+<BaseLayout title={homeTitle} description={brand.heroDescription}>
+
+
+<!-- HERO + ABOVE-FOLD STRIP -->
+<div class="hero-wrap">
+  <section class="hero">
+    <div class="hero-text">
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">{brand.heroEyebrow}</span>
+      </div>
+      <h1 class="hero-h1">{brand.heroHeadlineLead}<br /><em>{brand.heroHeadlineEm}</em></h1>
+      <p class="hero-desc">{brand.heroDescription}</p>
+      <div class="hero-btns">
+        <a href="#editors-picks" class="btn-hero">{brand.heroPrimaryCta}</a>
+        <a href="#how-we-test" class="btn-ghost">{brand.heroSecondaryCta}</a>
+      </div>
+    </div>
+    <div class="hero-img" style={`background-image: url('${siteData.heroImagePath}');`}></div>
+  </section>
+  
+  {aboveFold.length > 0 && (
+    <div class="above-fold-strip">
+      <div class="strip-label">
+        <small>RANKED #1-{aboveFold.length}</small>
+        <strong>This Week's Top Picks</strong>
+      </div>
+      <div class="strip-items">
+        {aboveFold.map((p) => (
+          <a class="strip-item" href={p.slug}>
+            <img src={p.imageUrl} alt={p.imageAlt} />
+            <div class="strip-item-info">
+              <div class="strip-item-name">{p.name}</div>
+              <div class="strip-item-price">{p.price !== null ? `$${p.price.toLocaleString()}` : ''} →</div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+  <!-- QUICK-NAV STRIP -->
+  <div class="qnav">
+    <div class="qnav-inner">
+      {brand.quickNavLabels.map((label, i) => (
+        <div class={`qn${i === 0 ? ' hot' : ''}`}>
+          <span class="qn-icon">{QUICK_NAV_ICONS[i % QUICK_NAV_ICONS.length]}</span>{label}
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+<!-- BROWSE BY CATEGORY (chip row, was image carousel) -->
+<div class="category-chips">
+  <span class="label">BROWSE BY CATEGORY</span>
+  <div class="chip-row">
+    {silos.map((silo) => (
+      <a class="chip" href={silo.hubUrl}>
+        <span class="chip-icon">▣</span> {silo.name} · {silo.spokeCount}
+      </a>
+    ))}
+  </div>
+</div>
+
+
+<!-- EDITOR'S TOP PICKS — 5-card Variant A grid -->
+<section class="section section-cream" id="editors-picks">
+  {topPicks.length > 0 && (
+    <>
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="label">{brand.productGridLabel}</div>
+          <h2>{brand.productGridTitle}</h2>
+        </div>
+        <a href="#how-we-test">SEE ALL REVIEWS →</a>
+      </div>
+      <div class="grid-5">
+        {topPicks.map((p) => (
+          <a class="pcard" href={p.slug}>
+            {p.badge && <span class={`badge ${p.badgeVariant === 'ink2' ? 'runner-up' : p.badgeVariant === 'gold' ? 'value' : ''}`}>{p.badge}</span>}
+            <img src={p.imageUrl} alt={p.imageAlt} />
+            <div class="body">
+              <div class="brand">{p.brand}</div>
+              <div class="name">{p.name}</div>
+              {p.rating !== null && (
+                <div class="rating">
+                  <span class="stars">{'★'.repeat(Math.round(p.rating))}{'☆'.repeat(5 - Math.round(p.rating))}</span>
+                  {p.reviewCount !== null && <span class="reviews">({p.reviewCount.toLocaleString()})</span>}
+                </div>
+              )}
+              <div class="footer">
+                {p.price !== null && (
+                  <div class="price-row">
+                    <span class="price">{`$${p.price.toLocaleString()}`}</span>
+                    {p.priceWas !== null && <span class="price-was">{`$${p.priceWas.toLocaleString()}`}</span>}
+                  </div>
+                )}
+                <button class="cta">VIEW ON AMAZON →</button>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </>
+  )}
+</section>
+
+
+<!-- HEAD-TO-HEAD COMPARISON — Wirecutter pick-row layout -->
+<section class="section section-white">
+  {topPicks.length > 0 && (
+    <>
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="label">HEAD-TO-HEAD</div>
+          <h2>{brand.comparisonTitle}</h2>
+        </div>
+      </div>
+      <div class="pick-rows">
+        {topPicks.map((p) => (
+          <a class={`pick-row ${p.rank === 1 ? 'winner' : ''}`} href={p.slug}>
+            <img src={p.imageUrl} alt={p.imageAlt} />
+            <div class="pick-row-meta">
+              <span class="rank">{p.rank === 1 ? '🏆 ' : ''}RANK #{p.rank} · {p.badge ?? ''}</span>
+              <div class="name">{p.name}</div>
+              {p.whyPickedIt !== null && <p class="why">{p.whyPickedIt}</p>}
+            </div>
+            <div class="pick-row-price">
+              <div class="num">{p.price !== null ? `$${p.price.toLocaleString()}` : '—'}</div>
+              {p.priceWas !== null && <span class="label">WAS {`$${p.priceWas.toLocaleString()}`}</span>}
+            </div>
+            <button class="pick-row-cta">CHECK PRICE →</button>
+          </a>
+        ))}
+      </div>
+    </>
+  )}
+</section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip" id="how-we-test">
+    <div class="trust-inner">
+      {brand.trustStats.map((stat) => (
+        <div class="t-block">
+          <div class="t-num">{stat.value}</div>
+          <div class="t-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+
+<!-- ALSO WORTH CONSIDERING — bestseller dark carousel (real data) -->
+<section class="section section-ink">
+  {bestsellers.length > 0 && (
+    <>
+      <div class="section-header">
+        <div class="section-header-left">
+          <div class="label" style="color:var(--leaf3)">{brand.bestsellerLabel}</div>
+          <h2 style="color:white">{brand.bestsellerTitle}</h2>
+        </div>
+        <a href="#hub" style="color:var(--sage)">SEE ALL →</a>
+      </div>
+      <div class="bestseller-row">
+        {bestsellers.map((p) => (
+          <a class="bs-card" href={p.slug}>
+            <img src={p.imageUrl} alt={p.imageAlt} />
+            <div class="bbrand">{p.brand}</div>
+            <div class="bname">{p.name}</div>
+            {p.price !== null && <div class="bprice">{`$${p.price.toLocaleString()}`}</div>}
+            <span class="bcta">CHECK ON AMAZON →</span>
+          </a>
+        ))}
+      </div>
+    </>
+  )}
+</section>
+
+  <!-- CONTENT HUB GRID -->
+  <section class="hub-section" id="hub">
+    <div style="max-width:1320px;margin:0 auto;padding:0 32px">
+      <div class="sec-head">
+        <div>
+          <div class="sec-label">{brand.hubLabel}</div>
+          <h2 class="sec-title">{brand.hubTitle}</h2>
+        </div>
+        <a href="#hub" class="sec-link">All guides →</a>
+      </div>
+      <div class="hub-grid">
+        {silos.map((silo) => (
+          <a href={silo.hubUrl} class="hub-card" style="text-decoration:none;color:inherit">
+            <div class="hub-type">{silo.spokeCount} guides</div>
+            <div class="hub-title">{silo.name}</div>
+            <div class="hub-desc">{silo.description}</div>
+            <div class="hub-cta">Read guides →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <div class="nl-section">
+    <div class="nl-inner">
+      <div class="nl-label">{brand.newsletterEyebrow}</div>
+      <h2 class="nl-title">{brand.newsletterTitle}</h2>
+      <p class="nl-desc">{brand.newsletterDesc}</p>
+      <form class="nl-form" action="/api/subscribe" method="post">
+        <label style="flex:1;display:flex">
+          <span class="visually-hidden" style="position:absolute;left:-9999px">Email address</span>
+          <input class="nl-input" type="email" name="email" required placeholder="your@email.com" />
+        </label>
+        <button class="nl-submit" type="submit">{brand.newsletterCta}</button>
+      </form>
+      <div class="nl-note">No spam, ever. Unsubscribe anytime.</div>
+    </div>
+  </div>
+
+</BaseLayout>
