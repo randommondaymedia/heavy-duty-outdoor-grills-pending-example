@@ -1,0 +1,122 @@
+{
+  "name": "heavy-duty outdoor grills",
+  "domain": "heavy-duty-outdoor-grills-pending.example",
+  "niche": "heavy-duty outdoor grills",
+  "description": "We've burned through hundreds of charcoal and gas grills in real kitchens. Here's which ones actually hold up to years of weekend cookouts.",
+  "affiliateDisclosure": "This site contains affiliate links. We may earn a commission at no extra cost to you.",
+  "heroImagePath": "/images/hero.jpg",
+  "silos": [
+    {
+      "slug": "bbq-grills-outdoor-kitchen",
+      "name": "Bbq Grills Outdoor Kitchen",
+      "keywordTheme": "bbq grills outdoor kitchen",
+      "description": "Topical silo anchored on \"bbq grills outdoor kitchen\".",
+      "imagePath": "/images/silo-bbq-grills-outdoor-kitchen.jpg",
+      "hubUrl": "/bbq-grills-outdoor-kitchen/",
+      "spokeCount": 27
+    },
+    {
+      "slug": "charcoal-bbq-grills-walmart",
+      "name": "Charcoal Bbq Grills Walmart",
+      "keywordTheme": "charcoal bbq grills walmart",
+      "description": "Topical silo anchored on \"charcoal bbq grills walmart\".",
+      "imagePath": "/images/silo-charcoal-bbq-grills-walmart.jpg",
+      "hubUrl": "/charcoal-bbq-grills-walmart/",
+      "spokeCount": 50
+    },
+    {
+      "slug": "gas-grills-for-sale",
+      "name": "Gas Grills For Sale",
+      "keywordTheme": "gas grills for sale",
+      "description": "Topical silo anchored on \"gas grills for sale\".",
+      "imagePath": "/images/silo-gas-grills-for-sale.jpg",
+      "hubUrl": "/gas-grills-for-sale/",
+      "spokeCount": 54
+    },
+    {
+      "slug": "natural-gas-outdoor-grills",
+      "name": "Natural Gas Outdoor Grills",
+      "keywordTheme": "natural gas outdoor grills",
+      "description": "Topical silo anchored on \"natural gas outdoor grills\".",
+      "imagePath": "/images/silo-natural-gas-outdoor-grills.jpg",
+      "hubUrl": "/natural-gas-outdoor-grills/",
+      "spokeCount": 49
+    },
+    {
+      "slug": "walmart-electric-outdoor-grills",
+      "name": "Walmart Electric Outdoor Grills",
+      "keywordTheme": "walmart electric outdoor grills",
+      "description": "Topical silo anchored on \"walmart electric outdoor grills\".",
+      "imagePath": "/images/silo-walmart-electric-outdoor-grills.jpg",
+      "hubUrl": "/walmart-electric-outdoor-grills/",
+      "spokeCount": 24
+    }
+  ],
+  "brand": {
+    "tagline": "Heavy-Duty Grill Authority Since 2018",
+    "hubLabel": "Guides, How-Tos & Comparisons",
+    "hubTitle": "Everything You Need to Know About Grills",
+    "navLabels": [
+      "Charcoal Grills",
+      "Gas Grills",
+      "Natural Gas",
+      "Electric Grills",
+      "Outdoor Kitchens"
+    ],
+    "editorRole": "Grill Editor",
+    "trustStats": [
+      {
+        "label": "Editor-Curated",
+        "value": "100%"
+      },
+      {
+        "label": "No Sponsored Posts",
+        "value": "Independent"
+      },
+      {
+        "label": "Affiliate Disclosed",
+        "value": "All"
+      },
+      {
+        "label": "Updated Rankings",
+        "value": "Weekly"
+      }
+    ],
+    "heroEyebrow": "2025 Expert Rankings · Updated January",
+    "paletteName": "terracotta",
+    "editorByline": "By Marcus Webb",
+    "newsletterCta": "Subscribe",
+    "heroHeadlineEm": "Honestly Tested",
+    "heroPrimaryCta": "See Our Top Picks →",
+    "newsletterDesc": "Get our latest rankings, seasonal buying guides, and real-world durability tests delivered to your inbox. No hype, just honest gear advice.",
+    "quickNavLabels": [
+      "Best Gas Grills",
+      "Best Charcoal Grills",
+      "Natural Gas Models",
+      "Electric Grills",
+      "Under $500",
+      "Built-In Ready",
+      "Small Spaces"
+    ],
+    "bestsellerLabel": "Also Worth Considering",
+    "bestsellerTitle": "More Top-Rated Heavy-Duty Grills",
+    "comparisonTitle": "All Grills Side by Side",
+    "guideBannerDesc": "Find the right grill for your space, fuel type, and budget. We break down gas vs. charcoal, size considerations, and what features actually matter for long-term durability.",
+    "heroDescription": "We've burned through hundreds of charcoal and gas grills in real kitchens. Here's which ones actually hold up to years of weekend cookouts.",
+    "newsletterTitle": "New Grill Reviews, Every Week",
+    "guideBannerLabel": "Complete 2025 Buyer's Guide",
+    "guideBannerTitle": "Heavy-Duty Grills Under $1,000",
+    "heroHeadlineLead": "The Best Heavy-Duty Grills,",
+    "heroSecondaryCta": "How We Test",
+    "productGridLabel": "Editor's Choice · January 2025",
+    "productGridTitle": "Our Top-Ranked Heavy-Duty Grills Right Now",
+    "footerDescription": "We test heavy-duty outdoor grills in real backyards and kitchens, not labs. No brand partnerships, no pay-to-play. Just the grills that actually cook well and last.",
+    "newsletterEyebrow": "Stay in the Loop",
+    "productNounPlural": "grills",
+    "announcementBarText": "Spring Sale Live Now · Up to 30% Off Gas & Charcoal Grills",
+    "productNounSingular": "grill"
+  },
+  "paletteName": "terracotta",
+  "generatedAt": "2026-05-14T01:28:14.068Z",
+  "factoryVersion": "0.1.0"
+}
