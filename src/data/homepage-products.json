@@ -1,4 +1,96 @@
 {
-  "topPicks": [],
-  "bestsellers": []
+  "topPicks": [
+    {
+      "rank": 1,
+      "slug": "/go/brand-man-4-burner-gas-outdoor-kitchen-grill-island-with-side-burner-44-000-btu-stainless-steel-bbq-grill-station-with-storage-cabinets-fold-out-prep-table-lpg-ng-convertible-black-8n5v2q-product-strip-2/",
+      "brand": "",
+      "name": "Brand-Man 4-Burner Gas Outdoor Kitchen Grill Island with Side Burner - 44,000 BTU Stainless Steel BBQ Grill Station with Storage Cabinets, Fold-out Prep Table, LPG/NG Convertible, Black",
+      "imageUrl": "https://m.media-amazon.com/images/I/61+vH-tYOjL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "imageAlt": " Brand-Man 4-Burner Gas Outdoor Kitchen Grill Island with Side Burner - 44,000 BTU Stainless Steel BBQ Grill Station with Storage Cabinets, Fold-out Prep Table, LPG/NG Convertible, Black",
+      "price": 799.99,
+      "priceWas": null,
+      "rating": 4.7,
+      "reviewCount": 113,
+      "badge": "#1 PICK",
+      "badgeVariant": "leaf",
+      "whyPickedIt": null
+    },
+    {
+      "rank": 2,
+      "slug": "/go/brand-man-gas-grill-built-in-head-30-inch-4-burner-propane-grill-natural-gas-convertible-heavy-duty-304-stainless-steel-40-000btus-bbq-island-outdoor-kitchen-zxfd73-product-strip-4/",
+      "brand": "",
+      "name": "Brand-Man Gas Grill Built-In Head, 30-Inch 4-Burner Propane Grill, Natural Gas Convertible, Heavy Duty 304 Stainless Steel 40,000BTUs BBQ Island Outdoor Kitchen",
+      "imageUrl": "https://m.media-amazon.com/images/I/71FicfxC4ZL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "imageAlt": " Brand-Man Gas Grill Built-In Head, 30-Inch 4-Burner Propane Grill, Natural Gas Convertible, Heavy Duty 304 Stainless Steel 40,000BTUs BBQ Island Outdoor Kitchen",
+      "price": 889.99,
+      "priceWas": null,
+      "rating": 5,
+      "reviewCount": 72,
+      "badge": "RUNNER-UP",
+      "badgeVariant": "ink2",
+      "whyPickedIt": null
+    },
+    {
+      "rank": 3,
+      "slug": "/go/monument-grills-larger-4-2-burner-propane-gas-grills-stainless-steel-cabinet-style-with-clearview-lid-knob-controls-built-in-thermometer-infrared-side-sear-burners-side-burners-blue-p9bksf-product-strip-3/",
+      "brand": "",
+      "name": "Monument Grills Larger 4+2 Burner Propane Gas Grills Stainless Steel Cabinet Style with Clearview® Lid, Knob Controls, Built-In Thermometer, Infrared Side Sear Burners & Side Burners, Blue",
+      "imageUrl": "https://m.media-amazon.com/images/I/51q7r5IMCWL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "imageAlt": " Monument Grills Larger 4+2 Burner Propane Gas Grills Stainless Steel Cabinet Style with Clearview® Lid, Knob Controls, Built-In Thermometer, Infrared Side Sear Burners & Side Burners, Blue",
+      "price": 519,
+      "priceWas": null,
+      "rating": 5,
+      "reviewCount": 71,
+      "badge": "BEST VALUE",
+      "badgeVariant": "gold",
+      "whyPickedIt": null
+    },
+    {
+      "rank": 4,
+      "slug": "/go/hygrill-std-series-heavy-duty-3-burner-built-in-grill-stainless-steel-grill-head-for-outdoor-kitchen-natural-gas-9krvwx-product-strip-4/",
+      "brand": "",
+      "name": "Hygrill STD Series Heavy Duty 3-Burner Built In Grill, Stainless Steel Grill Head for Outdoor Kitchen, Natural Gas",
+      "imageUrl": "https://m.media-amazon.com/images/I/71z2UDg3nuL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "imageAlt": " Hygrill STD Series Heavy Duty 3-Burner Built In Grill, Stainless Steel Grill Head for Outdoor Kitchen, Natural Gas",
+      "price": 1129.99,
+      "priceWas": null,
+      "rating": 5,
+      "reviewCount": 41,
+      "badge": "EDITOR'S PICK",
+      "badgeVariant": "leaf",
+      "whyPickedIt": null
+    },
+    {
+      "rank": 5,
+      "slug": "/go/stanbroil-28-inch-premium-built-in-natural-gas-griddle-for-outdoor-kitchen-grill-durable-stainless-steel-2-burner-flat-top-grill-with-lid-for-bbq-island-34-000-btus-71dsnl-product-strip-5/",
+      "brand": "",
+      "name": "Stanbroil 28-Inch Premium Built-In Natural Gas Griddle for Outdoor Kitchen Grill, Durable Stainless Steel 2-Burner Flat Top Grill with Lid for BBQ Island, 34,000 BTUs",
+      "imageUrl": "https://m.media-amazon.com/images/I/61t5yBigizL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "imageAlt": " Stanbroil 28-Inch Premium Built-In Natural Gas Griddle for Outdoor Kitchen Grill, Durable Stainless Steel 2-Burner Flat Top Grill with Lid for BBQ Island, 34,000 BTUs",
+      "price": 1109.99,
+      "priceWas": null,
+      "rating": 4.5,
+      "reviewCount": 20,
+      "badge": "MOST DURABLE",
+      "badgeVariant": "leaf",
+      "whyPickedIt": null
+    }
+  ],
+  "bestsellers": [
+    {
+      "rank": 6,
+      "slug": "/go/tytus-fresno-5-burner-propane-or-natural-gas-island-grill-864-sq-in-cooking-48-000-btu-main-12-000-btu-side-burner-porcelain-grates-storage-cabinets-semi-portable-gm-ash-stone-pd6x45-product-strip-1/",
+      "brand": "",
+      "name": "Tytus Fresno 5-Burner Propane or Natural Gas Island Grill – 864 sq. in. Cooking, 48,000 BTU Main + 12,000 BTU Side Burner, Porcelain Grates, Storage Cabinets, Semi-Portable - GM/Ash Stone",
+      "imageUrl": "https://m.media-amazon.com/images/I/7155rxXcZBL._AC_SX300_SY300_QL70_ML2_.jpg",
+      "imageAlt": " Tytus Fresno 5-Burner Propane or Natural Gas Island Grill – 864 sq. in. Cooking, 48,000 BTU Main + 12,000 BTU Side Burner, Porcelain Grates, Storage Cabinets, Semi-Portable - GM/Ash Stone",
+      "price": 1399.99,
+      "priceWas": null,
+      "rating": 4.2,
+      "reviewCount": 16,
+      "badge": null,
+      "badgeVariant": "leaf",
+      "whyPickedIt": null
+    }
+  ]
 }
