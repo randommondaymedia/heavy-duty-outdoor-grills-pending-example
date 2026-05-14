@@ -5,7 +5,9 @@ import siteData from '../data/site.json';
 
 export async function getStaticPaths() {
   const pages = (await import('../data/pages.json')).default;
-  return pages.map((page) => ({ params: { slug: page.slug }, props: { page } }));
+  return pages
+    .filter((page: { status: string }) => page.status === 'PUBLISHED')
+    .map((page) => ({ params: { slug: page.slug }, props: { page } }));
 }
 
 const { page } = Astro.props;
@@ -126,22 +128,7 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
   <!-- SPOKE LAYOUT — article + sidebar grid -->
   <div class="spoke-layout">
     <div class="spoke-content" data-status={page.status}>
-      {page.status === 'DRAFT' ? (
-        <>
-          <aside class="affiliate-disclosure" role="note">
-            <strong>Disclosure:</strong> This page contains affiliate links. We may earn a
-            commission if you purchase through them — at no extra cost to you.
-          </aside>
-          <article class="article">
-            <p class="placeholder">
-              Our experts are currently reviewing the best <strong>{page.keyword || page.title}</strong> options.
-              Check back soon, or see our full <a href="/">{siteData.niche} guide</a>.
-            </p>
-          </article>
-        </>
-      ) : (
-        <Fragment set:html={page.outline} />
-      )}
+      <Fragment set:html={page.outline} />
     </div>
 
     <!-- SIDEBAR -->
