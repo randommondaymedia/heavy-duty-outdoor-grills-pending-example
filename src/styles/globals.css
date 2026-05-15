@@ -28,10 +28,10 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 /* HEADER */
 .hdr{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 24px rgba(14,20,15,.07)}
 .hdr-inner{max-width:1320px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.logo{display:flex;flex-direction:column;min-width:0;max-width:min(50%,460px)}
-.logo-mark{font-family:var(--font-display);font-size:clamp(1.1rem,1.6vw,1.85rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo{display:flex;flex-direction:column;min-width:0;flex-shrink:1;max-width:60%}
+.logo-mark{font-family:var(--font-display);font-size:clamp(1rem,1.4vw,1.5rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;word-break:keep-all;hyphens:none}
 .logo-mark span{color:var(--leaf2)}
-.logo-sub{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:4px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-sub{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);margin-top:6px;font-weight:600;line-height:1.2}
 .nav{display:flex;list-style:none;gap:32px}
 .nav a{font-size:.8rem;font-weight:600;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .nav a:hover,.nav a.on{color:var(--leaf2)}
@@ -76,7 +76,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .hscroll-line{width:36px;height:1px;background:rgba(255,255,255,.20)}
 
 /* ABOVE-FOLD STRIP */
-.above-fold-strip{position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);display:flex;gap:0;background:var(--white);box-shadow:0 12px 40px rgba(0,0,0,.25);width:90%;max-width:1100px;z-index:10;border-radius:2px;overflow:hidden}
+.above-fold-strip{position:relative;display:flex;gap:0;background:var(--white);box-shadow:0 18px 36px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.08);width:min(92%,1100px);margin:-36px auto 48px;z-index:10;border-radius:8px;overflow:hidden}
 .strip-label{background:linear-gradient(135deg,var(--leaf2) 0%,var(--leaf) 100%);color:var(--white);padding:18px 24px;display:flex;flex-direction:column;justify-content:center;min-width:190px;position:relative}
 .strip-label::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(255,255,255,.06) 60%,rgba(255,255,255,.06) 65%,transparent 65%);pointer-events:none}
 .strip-label small{font-size:.625rem;letter-spacing:.13em;color:rgba(255,255,255,.7);position:relative;z-index:1}
@@ -90,7 +90,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .strip-item-price{font-family:var(--font-mono);color:var(--leaf2);font-weight:600;font-size:.8rem}
 
 /* QUICK-NAV */
-.qnav{background:var(--ink);overflow:hidden;padding-top:100px}
+.qnav{background:var(--ink);overflow:hidden;padding-top:0}
 .qnav-inner{max-width:1320px;margin:0 auto;padding:0 32px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
 .qnav-inner::-webkit-scrollbar{display:none}
 .qn{display:flex;align-items:center;gap:10px;padding:14px 22px;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.48);white-space:nowrap;border-right:1px solid rgba(255,255,255,.06);transition:all .2s;cursor:pointer}
@@ -404,9 +404,11 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
   .ft-top{grid-template-columns:1fr 1fr}
   .trust-inner{grid-template-columns:1fr 1fr;gap:28px}
   .hub-grid{grid-template-columns:1fr 1fr}
-  .above-fold-strip{position:static;transform:none;width:100%;max-width:100%;border-radius:0;box-shadow:none}
+  .above-fold-strip{width:100%;margin:0;border-radius:0;box-shadow:none}
   .hero{grid-template-columns:1fr;min-height:400px;height:auto}
   .hero-img{height:260px}
+  .hdr-inner{gap:16px;padding:0 20px}
+  .logo{max-width:none}
 }
 @media(max-width:700px){
   .p-grid{grid-template-columns:1fr}
@@ -425,4 +427,8 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
   .hot-card{flex:0 0 220px}
   .strip-items{grid-template-columns:1fr}
   .hero-text{padding:48px 32px 80px}
+  .hdr-inner{height:auto;min-height:64px;padding:12px 16px;gap:12px}
+  .logo-mark{font-size:1.05rem;line-height:1.15}
+  .logo-sub{font-size:.5rem;letter-spacing:.14em}
+  .strip-item img{width:48px;height:48px}
 }
