@@ -27,7 +27,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 
 /* HEADER */
 .hdr{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 24px rgba(14,20,15,.07)}
-.hdr-inner{max-width:1320px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.hdr-inner{max-width:1320px;margin:0 auto;padding:14px 32px;min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:nowrap}
 .logo{display:flex;flex-direction:column;min-width:0;flex-shrink:1;max-width:60%}
 .logo-mark{font-family:var(--font-display);font-size:clamp(1rem,1.4vw,1.5rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;word-break:keep-all;hyphens:none}
 .logo-mark span{color:var(--leaf2)}
@@ -407,7 +407,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
   .above-fold-strip{width:100%;margin:0;border-radius:0;box-shadow:none}
   .hero{grid-template-columns:1fr;min-height:400px;height:auto}
   .hero-img{height:260px}
-  .hdr-inner{gap:16px;padding:0 20px}
+  .hdr-inner{gap:16px;padding:14px 20px}
   .logo{max-width:none}
 }
 @media(max-width:700px){
