@@ -28,10 +28,10 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 /* HEADER */
 .hdr{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:200;box-shadow:0 2px 24px rgba(14,20,15,.07)}
 .hdr-inner{max-width:1320px;margin:0 auto;padding:0 32px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-.logo{display:flex;flex-direction:column}
-.logo-mark{font-family:var(--font-display);font-size:1.85rem;font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1}
+.logo{display:flex;flex-direction:column;min-width:0;max-width:min(50%,460px)}
+.logo-mark{font-family:var(--font-display);font-size:clamp(1.1rem,1.6vw,1.85rem);font-weight:700;color:var(--ink);letter-spacing:-.02em;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .logo-mark span{color:var(--leaf2)}
-.logo-sub{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:-2px;font-weight:600}
+.logo-sub{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:4px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .nav{display:flex;list-style:none;gap:32px}
 .nav a{font-size:.8rem;font-weight:600;color:var(--ink3);letter-spacing:.04em;text-transform:uppercase;transition:color .2s;white-space:nowrap}
 .nav a:hover,.nav a.on{color:var(--leaf2)}
@@ -188,7 +188,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .pcard .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
 .pcard .price{font-family:var(--font-mono);font-size:1.125rem;color:var(--leaf2);font-weight:600}
 .pcard .price-was{font-family:var(--font-mono);font-size:.75rem;color:var(--ink3);text-decoration:line-through}
-.pcard .cta{background:var(--leaf);color:var(--white);border:none;padding:11px;font-size:.69rem;letter-spacing:.1em;cursor:pointer;width:100%;font-weight:600;transition:background .2s;text-align:center}
+.pcard .cta{display:block;background:var(--leaf);color:var(--white);border:none;padding:11px;font-size:.69rem;letter-spacing:.1em;cursor:pointer;width:100%;font-weight:600;transition:background .2s;text-align:center}
 .stars{color:var(--star);font-size:.75rem}
 .reviews{color:var(--ink3);font-size:.69rem}
 
@@ -205,7 +205,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .pick-row-price{text-align:center}
 .pick-row-price .num{font-family:var(--font-mono);font-size:1.375rem;color:var(--leaf2);font-weight:700}
 .pick-row-price .label{display:block;font-size:.625rem;color:var(--ink3);letter-spacing:.06em;margin-top:4px}
-.pick-row-cta{background:var(--leaf);color:var(--white);border:none;padding:14px 20px;font-size:.69rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;white-space:nowrap;font-weight:600}
+.pick-row-cta{display:inline-block;background:var(--leaf);color:var(--white);border:none;padding:14px 20px;font-size:.69rem;letter-spacing:.1em;cursor:pointer;transition:background .2s;white-space:nowrap;font-weight:600;text-align:center}
 .pick-row:hover .pick-row-cta{background:var(--leaf2)}
 
 /* CATEGORY CHIPS */
@@ -240,7 +240,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 
 /* BESTSELLER ROW — Phase 2.1 also-worth-considering dark section */
 .bestseller-row{display:flex;gap:20px;max-width:1320px;margin:0 auto;overflow-x:auto;padding:0 32px 12px}
-.bs-card{min-width:240px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:16px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+.bs-card{flex:0 0 240px;min-width:240px;max-width:240px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);padding:16px;cursor:pointer;transition:background .2s,border-color .2s,transform .2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
 .bs-card:hover{background:rgba(255,255,255,.10);border-color:var(--leaf3);transform:translateY(-3px)}
 .bs-card img{width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:12px}
 .bs-card .bbrand{font-size:.625rem;color:var(--sage);letter-spacing:.13em;text-transform:uppercase}
@@ -365,7 +365,8 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .sb-box{background:var(--white);border:1px solid var(--border);overflow:hidden}
 .sb-head{background:var(--ink);color:rgba(255,255,255,.78);padding:13px 18px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 .sb-body{padding:18px}
-.sb-prod{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.sb-prod{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border);align-items:flex-start;text-decoration:none;color:inherit;transition:background .2s}
+.sb-prod:hover{background:var(--warm)}
 .sb-prod:last-of-type{border-bottom:none}
 .sb-thumb{width:54px;height:54px;flex-shrink:0;overflow:hidden;background:var(--warm)}
 .sb-thumb img{width:100%;height:100%;object-fit:cover}
