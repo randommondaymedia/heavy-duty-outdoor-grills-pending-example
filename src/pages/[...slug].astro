@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import pagesData from '../data/pages.json';
 import siteData from '../data/site.json';
+import homepageProducts from '../data/homepage-products.json';
+const sidebarTopPicks = homepageProducts.topPicks.slice(0, 3);
 
 export async function getStaticPaths() {
   const pages = (await import('../data/pages.json')).default;
@@ -133,23 +135,25 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
 
     <!-- SIDEBAR -->
     <aside class="sb">
-      <div class="sb-box">
-        <div class="sb-head">Our Top Picks Right Now</div>
-        <div class="sb-body">
-          {[1, 2, 3].map((rank) => (
-            <div class="sb-prod">
-              <div class="sb-thumb"></div>
-              <div>
-                <div class="sb-rank">#{rank}</div>
-                <div class="sb-name">Loading {brand.productNounSingular} pick #{rank}</div>
-                <div class="sb-stars">★★★★★</div>
-                <div class="sb-price">— · {brand.productNounSingular}</div>
-              </div>
-            </div>
-          ))}
-          <a href="/" class="sb-btn">See Full Rankings →</a>
+      {sidebarTopPicks.length > 0 && (
+        <div class="sb-box">
+          <div class="sb-head">Our Top Picks Right Now</div>
+          <div class="sb-body">
+            {sidebarTopPicks.map((p) => (
+              <a class="sb-prod" href={p.slug}>
+                <div class="sb-thumb"><img src={p.imageUrl} alt={p.imageAlt} /></div>
+                <div>
+                  <div class="sb-rank">#{p.rank}</div>
+                  <div class="sb-name">{p.name}</div>
+                  <div class="sb-stars">{p.rating !== null ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★'}</div>
+                  <div class="sb-price">{p.price !== null ? `$${p.price.toLocaleString()}` : '—'} · {brand.productNounSingular}</div>
+                </div>
+              </a>
+            ))}
+            <a href="/" class="sb-btn">See Full Rankings →</a>
+          </div>
         </div>
-      </div>
+      )}
 
       {related.length > 0 && (
         <div class="sb-box">
