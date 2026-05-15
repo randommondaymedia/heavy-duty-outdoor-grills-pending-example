@@ -109,7 +109,7 @@ const aboveFold = topPicks.slice(0, 3);
                     {p.priceWas !== null && <span class="price-was">{`$${p.priceWas.toLocaleString()}`}</span>}
                   </div>
                 )}
-                <button class="cta">VIEW ON AMAZON →</button>
+                <span class="cta">VIEW ON AMAZON →</span>
               </div>
             </div>
           </a>
@@ -143,7 +143,7 @@ const aboveFold = topPicks.slice(0, 3);
               <div class="num">{p.price !== null ? `$${p.price.toLocaleString()}` : '—'}</div>
               {p.priceWas !== null && <span class="label">WAS {`$${p.priceWas.toLocaleString()}`}</span>}
             </div>
-            <button class="pick-row-cta">CHECK PRICE →</button>
+            <span class="pick-row-cta">CHECK PRICE →</span>
           </a>
         ))}
       </div>
