@@ -13,9 +13,11 @@ const aboveFold = topPicks.slice(0, 3);
 <BaseLayout title={homeTitle} description={brand.heroDescription}>
 
 
-<!-- HERO + ABOVE-FOLD STRIP -->
+<!-- HERO + ABOVE-FOLD STRIP (Phase 2.8-1 redesign: full-bleed, lower-left, gradient overlay) -->
 <div class="hero-wrap">
   <section class="hero">
+    <div class="hero-bg" style={`background-image: url('${siteData.heroImagePath}');`}></div>
+    <div class="hero-overlay"></div>
     <div class="hero-text">
       <div class="eyebrow">
         <span class="eyebrow-line"></span>
@@ -28,7 +30,6 @@ const aboveFold = topPicks.slice(0, 3);
         <a href="#how-we-test" class="btn-ghost">{brand.heroSecondaryCta}</a>
       </div>
     </div>
-    <div class="hero-img" style={`background-image: url('${siteData.heroImagePath}');`}></div>
   </section>
   
   {aboveFold.length > 0 && (
