@@ -7,7 +7,8 @@ const brand = siteData.brand;
 const QUICK_NAV_ICONS = ['⚡', '▣', '☆', '⏰', '✨', '⚖', '⚒', '☰'];
 const homeTitle = siteData.name.replace(/\b\w/g, (c) => c.toUpperCase());
 const topPicks = homepageProducts.topPicks;
-const bestsellers = homepageProducts.bestsellers.length > 0 ? homepageProducts.bestsellers : topPicks;
+const MIN_BESTSELLERS = 3;
+const bestsellers = homepageProducts.bestsellers.length >= MIN_BESTSELLERS ? homepageProducts.bestsellers : [];
 const aboveFold = topPicks.slice(0, 3);
 ---
 <BaseLayout title={homeTitle} description={brand.heroDescription}>
@@ -166,30 +167,28 @@ const aboveFold = topPicks.slice(0, 3);
 
 
 <!-- ALSO WORTH CONSIDERING — bestseller dark carousel (real data) -->
+{bestsellers.length > 0 && (
 <section class="section section-ink">
-  {bestsellers.length > 0 && (
-    <>
-      <div class="section-header">
-        <div class="section-header-left">
-          <div class="label" style="color:var(--leaf3)">{brand.bestsellerLabel}</div>
-          <h2 style="color:white">{brand.bestsellerTitle}</h2>
-        </div>
-        <a href="#hub" style="color:var(--sage)">SEE ALL →</a>
-      </div>
-      <div class="bestseller-row">
-        {bestsellers.map((p) => (
-          <a class="bs-card" href={p.slug}>
-            <img src={p.imageUrl} alt={p.imageAlt} />
-            <div class="bbrand">{p.brand}</div>
-            <div class="bname">{p.name}</div>
-            {p.price !== null && <div class="bprice">{`$${p.price.toLocaleString()}`}</div>}
-            <span class="bcta">CHECK ON AMAZON →</span>
-          </a>
-        ))}
-      </div>
-    </>
-  )}
+  <div class="section-header">
+    <div class="section-header-left">
+      <div class="label" style="color:var(--leaf3)">{brand.bestsellerLabel}</div>
+      <h2 style="color:white">{brand.bestsellerTitle}</h2>
+    </div>
+    <a href="#hub" style="color:var(--sage)">SEE ALL →</a>
+  </div>
+  <div class="bestseller-row">
+    {bestsellers.map((p) => (
+      <a class="bs-card" href={p.slug}>
+        <img src={p.imageUrl} alt={p.imageAlt} />
+        <div class="bbrand">{p.brand}</div>
+        <div class="bname">{p.name}</div>
+        {p.price !== null && <div class="bprice">{`$${p.price.toLocaleString()}`}</div>}
+        <span class="bcta">CHECK ON AMAZON →</span>
+      </a>
+    ))}
+  </div>
 </section>
+)}
 
   <!-- CONTENT HUB GRID -->
   <section class="hub-section" id="hub">
