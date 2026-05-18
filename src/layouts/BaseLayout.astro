@@ -1,7 +1,7 @@
 ---
 import siteData from '../data/site.json';
 import '../styles/globals.css';
-const { title, description } = Astro.props;
+const { title, description, isSpoke = false } = Astro.props;
 const brand = siteData.brand;
 const silos = siteData.silos;
 
@@ -79,48 +79,60 @@ const productNounPluralTitled = titleCase(brand.productNounPlural);
     <main><slot /></main>
 
     <!-- FOOTER -->
-    <footer class="footer">
-      <div class="ft-inner">
-        <div class="ft-top">
-          <div>
-            <div class="ft-logo">{brandFirst}<span>{brandRest}</span></div>
-            <p class="ft-desc">{brand.footerDescription}</p>
-          </div>
-          <div>
-            <div class="ft-col-title">Categories</div>
-            <ul class="ft-list">
-              {silos.slice(0, 5).map((silo, i) => (
-                <li><a href={silo.hubUrl}>{navLabelFor(i, silo.name)}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <div class="ft-col-title">About</div>
-            <ul class="ft-list">
-              <li><a href="#how-we-test">How We Test</a></li>
-              <li><a href="#editors-picks">Editor's Picks</a></li>
-              <li><a href="#hub">All Guides</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="ft-col-title">Editor</div>
-            <ul class="ft-list">
-              <li>{brand.editorByline}</li>
-              <li>{brand.editorRole}</li>
-            </ul>
+    {isSpoke ? (
+      <footer class="spk-footer-mini">
+        <div class="spk-footer-mini-inner">
+          <p>{displayName} tests every product we recommend. We earn from qualifying purchases.</p>
+          <div class="spk-footer-mini-row">
+            <span>© {new Date().getFullYear()} {displayName}</span>
+            <span><a href="/disclosure/">Affiliate disclosure</a> · <a href="/privacy/">Privacy</a> · <a href="/contact/">Contact</a></span>
           </div>
         </div>
-        <div class="ft-bottom">
-          <div class="ft-disc">
-            <strong>Affiliate Disclosure:</strong> This site participates in the Amazon Services
-            LLC Associates Program and earns commissions on qualifying purchases at no additional
-            cost to you. Editorial opinions and rankings are never influenced by affiliate
-            relationships.
+      </footer>
+    ) : (
+      <footer class="footer">
+        <div class="ft-inner">
+          <div class="ft-top">
+            <div>
+              <div class="ft-logo">{brandFirst}<span>{brandRest}</span></div>
+              <p class="ft-desc">{brand.footerDescription}</p>
+            </div>
+            <div>
+              <div class="ft-col-title">Categories</div>
+              <ul class="ft-list">
+                {silos.slice(0, 5).map((silo, i) => (
+                  <li><a href={silo.hubUrl}>{navLabelFor(i, silo.name)}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <div class="ft-col-title">About</div>
+              <ul class="ft-list">
+                <li><a href="#how-we-test">How We Test</a></li>
+                <li><a href="#editors-picks">Editor's Picks</a></li>
+                <li><a href="#hub">All Guides</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="ft-col-title">Editor</div>
+              <ul class="ft-list">
+                <li>{brand.editorByline}</li>
+                <li>{brand.editorRole}</li>
+              </ul>
+            </div>
           </div>
-          <div>© {new Date().getFullYear()} {displayName}</div>
+          <div class="ft-bottom">
+            <div class="ft-disc">
+              <strong>Affiliate Disclosure:</strong> This site participates in the Amazon Services
+              LLC Associates Program and earns commissions on qualifying purchases at no additional
+              cost to you. Editorial opinions and rankings are never influenced by affiliate
+              relationships.
+            </div>
+            <div>© {new Date().getFullYear()} {displayName}</div>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    )}
 
     <script is:inline>
       // Scroll progress bar
