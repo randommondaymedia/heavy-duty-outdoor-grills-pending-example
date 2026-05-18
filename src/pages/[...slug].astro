@@ -52,7 +52,7 @@ const TEMPLATE_LABELS = {
 };
 function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
 ---
-<BaseLayout title={page.metaTitle} description={page.metaDescription}>
+<BaseLayout title={page.metaTitle} description={page.metaDescription} isSpoke={!page.isHubPage}>
 
   {page.isHubPage ? (
     <>
@@ -108,29 +108,75 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
     </>
   ) : (
     <>
-  <!-- SPOKE HERO -->
-  <section class="spoke-hero">
-    <div class="spoke-hero-bg" style={`background-image: url('${heroImage}');`}></div>
-    <div class="spoke-hero-ov"></div>
-    <div class="spoke-hero-inner">
+  <!-- SPOKE HERO (compact, 180px) -->
+  <section class="spk-hero">
+    <div class="spk-hero-bg" style={`background-image: url('${heroImage}');`}></div>
+    <div class="spk-hero-ov"></div>
+    <div class="spk-hero-inner">
       <div class="crumb">
         <a href="/">{siteDisplayName}</a><span class="crumb-sep">›</span>
-        <a href={`/${page.siloSlug}/`}>{siloDisplayName}</a><span class="crumb-sep">›</span>
-        <span style="color:rgba(255,255,255,.60)">{page.title}</span>
+        <a href={`/${page.siloSlug}/`}>{siloDisplayName}</a>
       </div>
-      <h1 class="spoke-h1">{page.title}</h1>
-      <div class="spoke-meta">
-        {brand.editorByline && <span>By {brand.editorByline}{brand.editorRole ? ` · ${brand.editorRole}` : ''}</span>}
-        <span>Updated {updatedLabel}</span>
+      <h1 class="h1">{page.title}</h1>
+      <div class="meta">
+        <b>Updated {updatedLabel}</b>
+        <span class="meta-dot">·</span>
         <span>{readMin} min read</span>
+        <span class="meta-dot">·</span>
+        <span>{page.productsCompared} {brand.productNounPlural} compared</span>
       </div>
     </div>
   </section>
+
+  <!-- DUAL PICK ROW (Phase 2.9) -->
+  {sidebarTopPicks.length > 0 && (
+    <section class="spk-picks-wrap">
+      <div class="spk-picks-eyebrow">OUR TOP PICKS</div>
+      <div class="spk-picks-row" data-count={Math.min(sidebarTopPicks.length, 2)}>
+        {sidebarTopPicks.slice(0, 2).map((p, i) => {
+          const cardClass = i === 0 ? 'spk-pcard winner' : 'spk-pcard value';
+          const badgeClass = i === 0 ? 'spk-pcard-badge' : 'spk-pcard-badge value';
+          const badgeLabel = i === 0 ? '#1 PICK' : 'BEST VALUE';
+          return (
+            <a class={cardClass} href={p.slug}>
+              <div class="spk-pcard-img">
+                <img src={p.imageUrl} alt={p.imageAlt} />
+                <span class={badgeClass}>{badgeLabel}</span>
+              </div>
+              <div class="spk-pcard-body">
+                <div class="spk-pcard-name">{p.name}</div>
+                <div class="spk-pcard-stars">{p.rating !== null ? '★'.repeat(Math.round(p.rating)) + '☆'.repeat(5 - Math.round(p.rating)) : '★★★★★'}{p.reviewCount !== null ? ` (${p.reviewCount.toLocaleString()})` : ''}</div>
+                <div class="spk-pcard-price">{p.price !== null ? `$${p.price.toLocaleString()}` : '—'}</div>
+                <span class="spk-pcard-cta">VIEW ON AMAZON →</span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </section>
+  )}
 
   <!-- SPOKE LAYOUT — article + sidebar grid -->
   <div class="spoke-layout">
     <div class="spoke-content" data-status={page.status}>
       <Fragment set:html={page.outline} />
+
+      {sidebarTopPicks[0] && (
+        <section class="spk-verdict">
+          <div class="spk-verdict-label">THE BOTTOM LINE</div>
+          <h2 class="spk-verdict-title">After {page.productsCompared} {brand.productNounPlural} compared, the <em>{sidebarTopPicks[0].name}</em> wins</h2>
+          <p class="spk-verdict-body">Best build quality, balanced performance, and the strongest warranty in our roundup.{sidebarTopPicks[1] ? <> If you want a budget alternative, see <b>{sidebarTopPicks[1].name}</b> below.</> : null}</p>
+          <a class="spk-vcta" href={sidebarTopPicks[0].slug}>
+            <div class="spk-vcta-img"><img src={sidebarTopPicks[0].imageUrl} alt={sidebarTopPicks[0].imageAlt} /></div>
+            <div class="spk-vcta-meta">
+              <div class="spk-vcta-rank">★ OUR #1 PICK</div>
+              <div class="spk-vcta-name">{sidebarTopPicks[0].name}</div>
+              <div class="spk-vcta-price">{sidebarTopPicks[0].price !== null ? `$${sidebarTopPicks[0].price.toLocaleString()}` : '—'}</div>
+            </div>
+            <span class="spk-vcta-arrow">SHOP →</span>
+          </a>
+        </section>
+      )}
     </div>
 
     <!-- SIDEBAR -->
@@ -140,7 +186,7 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
           <div class="sb-head">Our Top Picks Right Now</div>
           <div class="sb-body">
             {sidebarTopPicks.map((p) => (
-              <a class="sb-prod" href={p.slug}>
+              <a class="sb-prod" data-rank={p.rank} href={p.slug}>
                 <div class="sb-thumb"><img src={p.imageUrl} alt={p.imageAlt} /></div>
                 <div>
                   <div class="sb-rank">#{p.rank}</div>
@@ -174,6 +220,53 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
       )}
     </aside>
   </div>
+
+    {related.length > 0 && (
+      <section class="spk-related-section">
+        <div class="spk-related-inner">
+          <div class="spk-related-h">KEEP READING</div>
+          <h2 class="spk-related-h2">More {siloDisplayName} guides</h2>
+          <div class="spk-related-grid">
+            {related.slice(0, 3).map((item) => (
+              <a class="spk-relcard" href={`/${item.slug}/`}>
+                <div class="spk-relcard-type">{templateLabel(item.template)}</div>
+                <h3 class="spk-relcard-title">{item.title}</h3>
+                <span class="spk-relcard-arrow">READ GUIDE →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+    {sidebarTopPicks[0] && (
+      <>
+        <a class="spk-sba" id="spk-sba-target" href={sidebarTopPicks[0].slug}>
+          <div class="spk-sba-img"><img src={sidebarTopPicks[0].imageUrl} alt={sidebarTopPicks[0].imageAlt} /></div>
+          <div class="spk-sba-meta">
+            <div class="spk-sba-label">OUR PICK</div>
+            <div class="spk-sba-name">{sidebarTopPicks[0].name}</div>
+            <div class="spk-sba-price">{sidebarTopPicks[0].price !== null ? `$${sidebarTopPicks[0].price.toLocaleString()}` : '—'}{sidebarTopPicks[0].rating !== null ? ` · ${'★'.repeat(Math.round(sidebarTopPicks[0].rating))}` : ''}</div>
+          </div>
+          <span class="spk-sba-cta">SHOP →</span>
+        </a>
+        <script>{`
+          (function(){
+            var bar = document.getElementById('spk-sba-target');
+            var trigger = document.querySelector('.spk-picks-row');
+            if (bar && trigger && 'IntersectionObserver' in window) {
+              var io = new IntersectionObserver(function(entries){
+                for (var i=0; i<entries.length; i++) {
+                  bar.classList.toggle('spk-sba--visible', !entries[i].isIntersecting);
+                }
+              }, { rootMargin: '0px 0px -80% 0px' });
+              io.observe(trigger);
+            } else if (bar) {
+              bar.classList.add('spk-sba--visible');
+            }
+          })();
+        `}</script>
+      </>
+    )}
     </>
   )}
 </BaseLayout>
