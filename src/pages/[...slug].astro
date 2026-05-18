@@ -51,6 +51,14 @@ const TEMPLATE_LABELS = {
   ROUNDUP: 'Roundup', HOW_TO: 'How-To', INFORMATIONAL: 'Guide', CATEGORY_HUB: 'Hub',
 };
 function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
+
+// Phase 2.9 Task 13: Claude emits <aside class="pull" data-slug="X"> with the
+// raw /go/ slug as a data attribute. Wrap with a clickable <a> here so we
+// don't rely on Claude hallucinating a valid href.
+const outlineWithAnchoredPullquotes = (page.outline || '').replace(
+  /<aside class="pull" data-slug="([^"]+)">([sS]*?)<\/aside>/g,
+  '<a class="pull" href="$1">$2</a>',
+);
 ---
 <BaseLayout title={page.metaTitle} description={page.metaDescription} isSpoke={!page.isHubPage}>
 
@@ -159,7 +167,7 @@ function templateLabel(t) { return TEMPLATE_LABELS[t] || 'Guide'; }
   <!-- SPOKE LAYOUT — article + sidebar grid -->
   <div class="spoke-layout">
     <div class="spoke-content" data-status={page.status}>
-      <Fragment set:html={page.outline} />
+      <Fragment set:html={outlineWithAnchoredPullquotes} />
 
       {sidebarTopPicks[0] && (
         <section class="spk-verdict">
