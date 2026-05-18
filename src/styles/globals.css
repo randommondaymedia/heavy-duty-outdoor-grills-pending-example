@@ -339,7 +339,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 
 /* DUAL PICK ROW (Phase 2.9) — sits between spk-hero and article */
 .spk-picks-wrap{padding:16px 32px;background:var(--cream);max-width:1320px;margin:0 auto}
-.spk-picks-eyebrow{font-family:var(--font-ui);font-size:.62rem;letter-spacing:.20em;text-transform:uppercase;color:var(--leaf2);font-weight:800;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.spk-picks-eyebrow{font-family:var(--font-ui);font-size:.7rem;letter-spacing:.20em;text-transform:uppercase;color:var(--leaf2);font-weight:800;margin:0 0 12px;display:flex;align-items:center;gap:10px}
 .spk-picks-eyebrow::before{content:'';width:22px;height:2px;background:var(--leaf2)}
 .spk-picks-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .spk-picks-row[data-count="1"]{grid-template-columns:1fr;max-width:480px}
@@ -349,10 +349,10 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .spk-pcard.value{border-left:3px solid var(--gold)}
 .spk-pcard-img{aspect-ratio:4/3;position:relative;background:var(--warm);overflow:hidden}
 .spk-pcard-img img{width:100%;height:100%;object-fit:cover}
-.spk-pcard-badge{position:absolute;top:8px;left:8px;background:var(--leaf);color:var(--white);font-size:.54rem;letter-spacing:.12em;font-weight:800;padding:4px 9px;text-transform:uppercase;font-family:var(--font-ui)}
+.spk-pcard-badge{position:absolute;top:8px;left:8px;background:var(--leaf);color:var(--white);font-size:.68rem;letter-spacing:.10em;font-weight:800;padding:5px 10px;text-transform:uppercase;font-family:var(--font-ui)}
 .spk-pcard-badge.value{background:var(--gold)}
 .spk-pcard-body{padding:11px 12px 12px;display:flex;flex-direction:column;gap:5px;flex:1}
-.spk-pcard-name{font-family:var(--font-display);font-size:1rem;font-weight:700;line-height:1.16;color:var(--ink);margin:0}
+.spk-pcard-name{font-family:var(--font-display);font-size:1rem;font-weight:700;line-height:1.16;color:var(--ink);margin:0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
 .spk-pcard-stars{color:var(--star);font-size:.7rem}
 .spk-pcard-price{font-family:var(--font-mono);font-size:.86rem;color:var(--leaf2);font-weight:700;margin-top:auto;padding-top:4px}
 .spk-pcard-cta{display:block;background:var(--leaf);color:var(--white);padding:9px;text-align:center;font-size:.6rem;letter-spacing:.14em;font-weight:800;text-transform:uppercase;margin-top:6px}
@@ -426,7 +426,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .sb-thumb{width:64px;height:64px;flex-shrink:0;overflow:hidden;background:var(--warm)}
 .sb-thumb img{width:100%;height:100%;object-fit:cover}
 .sb-rank{display:none}
-.sb-name{font-family:var(--font-display);font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.18;margin-bottom:3px}
+.sb-name{font-family:var(--font-display);font-size:.86rem;font-weight:700;color:var(--ink);line-height:1.18;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
 .sb-stars{color:var(--star);font-size:.66rem;margin-bottom:2px}
 .sb-price{font-family:var(--font-mono);font-size:.74rem;color:var(--leaf2);font-weight:700}
 .sb-btn{display:block;margin-top:14px;text-align:center;background:var(--leaf);color:var(--white);padding:11px;font-size:.76rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
@@ -510,6 +510,25 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .spk-relcard:hover .spk-relcard-arrow{color:var(--leaf2)}
 @media(min-width:701px){.spk-related-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
 
+/* TOP PICKS BODY CARDS (Phase 2.9 Task 12) — wraps each top-pick writeup */
+.rev-card{background:var(--white);border:1px solid var(--border);border-left:3px solid transparent;margin:0 0 14px;position:relative;overflow:hidden}
+.rev-card.winner{border-left-color:var(--leaf)}
+.rev-card.value{border-left-color:var(--gold)}
+.rev-img{width:100%;aspect-ratio:4/3;position:relative;background:var(--warm)}
+.rev-img img{width:100%;height:100%;object-fit:cover}
+.rev-badge{position:absolute;top:10px;left:10px;background:var(--leaf);color:var(--white);font-size:.68rem;letter-spacing:.10em;font-weight:800;padding:5px 11px;text-transform:uppercase;font-family:var(--font-ui)}
+.rev-card.value .rev-badge{background:var(--gold)}
+.rev-body{padding:14px 16px 16px}
+.rev-name{font-family:var(--font-display);font-size:1.18rem;font-weight:700;line-height:1.16;margin:0 0 8px;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.rev-bot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;font-size:.74rem}
+.rev-stars{color:var(--star)}
+.rev-stars span{color:var(--ink3);margin-left:3px;font-size:.62rem}
+.rev-price{font-family:var(--font-mono);font-size:.94rem;color:var(--leaf2);font-weight:700}
+.rev-strength{font-size:.72rem;color:var(--ink2);font-style:italic;border-left:2px solid var(--leaf3);padding-left:10px;margin-bottom:14px;line-height:1.45}
+.rev-cta{display:block;background:var(--leaf);color:var(--white);padding:12px;text-align:center;font-size:.66rem;letter-spacing:.14em;font-weight:800;text-transform:uppercase;text-decoration:none}
+.rev-cta:hover{background:var(--leaf2)}
+@media(min-width:701px){.rev-card{display:grid;grid-template-columns:240px 1fr}.rev-img{aspect-ratio:1}.rev-body{padding:18px 22px}}
+
 /* MINI FOOTER (Phase 2.9) — spoke pages only */
 .spk-footer-mini{background:var(--ink);color:rgba(255,255,255,.5);padding:22px 0;font-size:.66rem;line-height:1.6}
 .spk-footer-mini-inner{max-width:1320px;margin:0 auto;padding:0 32px}
@@ -517,6 +536,27 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .spk-footer-mini-row{display:flex;justify-content:space-between;gap:10px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08);font-size:.58rem;flex-wrap:wrap}
 .spk-footer-mini a{color:rgba(255,255,255,.66);text-decoration:none}
 .spk-footer-mini a:hover{color:var(--leaf3)}
+
+/* WIRECUTTER ROWS for spoke comparison_table (Phase 2.9 Task 11) — mobile-first 2-col layout */
+.wcrows{display:flex;flex-direction:column;gap:8px;margin:0 0 28px}
+.wcrow{background:var(--white);border:1px solid var(--border);border-left:3px solid transparent;padding:10px;display:grid;grid-template-columns:72px 1fr;gap:12px;text-decoration:none;color:inherit;align-items:center;transition:background .15s,border-left-color .15s}
+.wcrow:hover{background:#fdfbf5;border-left-color:var(--leaf3)}
+.wcrow.winner{border-left-color:var(--leaf);background:var(--sage3)}
+.wcrow.winner:hover{background:#dfead8}
+.wcrow.value{border-left-color:var(--gold)}
+.wcrow-img{width:72px;height:72px;flex-shrink:0;overflow:hidden;background:var(--warm);position:relative}
+.wcrow-img img{width:100%;height:100%;object-fit:cover}
+.wcrow-meta{min-width:0}
+.wcrow-rank{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.14em;color:var(--leaf2);font-weight:700;text-transform:uppercase;margin-bottom:2px}
+.wcrow.value .wcrow-rank{color:var(--gold)}
+.wcrow-name{font-family:var(--font-display);font-size:.96rem;font-weight:700;line-height:1.16;margin:0 0 4px;color:var(--ink);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;word-break:break-word}
+.wcrow-bot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+.wcrow-stars{color:var(--star);font-size:.66rem}
+.wcrow-price{font-family:var(--font-mono);font-size:.78rem;color:var(--leaf2);font-weight:700}
+.wcrow-strength{font-size:.66rem;color:var(--ink3);font-style:italic;line-height:1.4;margin-bottom:5px}
+.wcrow-mini-cta{font-size:.58rem;letter-spacing:.12em;color:var(--leaf);font-weight:800;text-transform:uppercase;display:inline-block}
+.wcrow:hover .wcrow-mini-cta{color:var(--leaf2)}
+@media(min-width:701px){.wcrow{grid-template-columns:96px 1fr;padding:14px}.wcrow-img{width:96px;height:96px}.wcrow-name{font-size:1.12rem}}
 
 /* STICKY BOTTOM BUY BAR (Phase 2.9) — mobile only, visible after scrolling past .spk-picks-row */
 .spk-sba{position:fixed;left:0;right:0;bottom:0;background:var(--ink);color:var(--white);padding:8px 14px;display:none;grid-template-columns:44px 1fr auto;gap:12px;align-items:center;border-top:2px solid var(--leaf3);z-index:50;text-decoration:none;transform:translateY(100%);transition:transform .25s ease}
@@ -529,3 +569,13 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .spk-sba-price{font-family:var(--font-mono);font-size:.62rem;color:var(--leaf3);margin-top:1px}
 .spk-sba-cta{background:var(--leaf3);color:var(--ink);padding:11px 15px;font-size:.58rem;letter-spacing:.12em;font-weight:800;text-transform:uppercase;white-space:nowrap}
 @media(max-width:700px){.spk-sba{display:grid}}
+
+/* IN-BODY PULL-QUOTE CALLOUT (Phase 2.9 Task 13) — emitted by content-publisher in buying_guide_and_related */
+.pull,a.pull{background:var(--sage3);border-left:3px solid var(--leaf);padding:16px 18px;margin:18px 0;text-decoration:none;color:inherit;display:block;transition:background .2s}
+a.pull:hover{background:#dfead8}
+.pull-label{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.pull-label::before{content:'★';font-size:.74rem}
+.pull-text{font-family:var(--font-display);font-size:1.04rem;font-style:italic;line-height:1.4;color:var(--ink);margin:0 0 10px}
+.pull-text b{font-style:normal;font-weight:700}
+.pull-price{font-family:var(--font-mono);color:var(--leaf2);font-weight:700;font-style:normal;margin-left:8px;font-size:.92rem}
+.pull-cta{font-size:.62rem;letter-spacing:.14em;color:var(--leaf);font-weight:800;text-transform:uppercase;display:inline-flex;align-items:center;gap:5px}
