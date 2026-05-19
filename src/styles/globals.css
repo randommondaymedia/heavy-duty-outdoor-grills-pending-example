@@ -357,7 +357,7 @@ button{font-family:var(--font-ui);cursor:pointer;border:none}
 .spk-pcard-price{font-family:var(--font-mono);font-size:.86rem;color:var(--leaf2);font-weight:700;margin-top:auto;padding-top:4px}
 .spk-pcard-cta{display:block;background:var(--leaf);color:var(--white);padding:9px;text-align:center;font-size:.6rem;letter-spacing:.14em;font-weight:800;text-transform:uppercase;margin-top:6px}
 .spk-pcard:hover .spk-pcard-cta{background:var(--leaf2)}
-@media(min-width:701px){.spk-picks-row{gap:20px}.spk-pcard-name{font-size:1.12rem}.spk-picks-wrap{padding:24px 32px}}
+@media(min-width:701px){.spk-picks-row{gap:20px}.spk-pcard{display:grid;grid-template-columns:200px 1fr;align-items:stretch}.spk-pcard-img{aspect-ratio:1;width:200px;height:100%;flex:none}.spk-pcard-body{padding:14px 18px;justify-content:center;flex:1;min-width:0}.spk-pcard-name{font-size:1.18rem}.spk-picks-wrap{padding:24px 32px}}
 /* END-OF-ARTICLE VERDICT (Phase 2.9) — sits inside .spoke-content, after Fragment */
 .spk-verdict{background:var(--ink);color:var(--white);padding:28px 32px 30px;margin:28px 0 0;position:relative;overflow:hidden}
 .spk-verdict::after{content:'';position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:rgba(122,184,132,.10);border-radius:50%;pointer-events:none}
